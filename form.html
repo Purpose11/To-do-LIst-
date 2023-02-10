@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="heading">
+        <h1>Form Builder</h1>
+    </div>
+    <div class="main">
+        <form>
+            <input type="text" id="addPlaceHolder" placeholder="Enter Place holder">
+            <input type="text" id="addBtnValue" placeholder="Enter Value for button">
+        </form>
+    
+        <button id="addFormBtn">Create HTML Form</button>
+        <button id="addBtn">Create Button</button>
+     
+
+    </div>
+    <div id="formContainer">
+
+    </div>
+ 
+    <div id="btnContainer">
+
+    </div>
+
+   
+    <style>
+        
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 20px;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(./bg.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: sans-serif;
+        }
+        .heading h1{
+            color: white;
+        }
+
+        .main{
+            width: 350px;
+            height: 80px;
+            border:  1px solid black;
+            padding: 10px 10px;
+            text-align: center;
+            border-radius: 7px;
+            background:#e4973b;
+            box-shadow: 0 0 10px;
+        }
+        .main form{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .main input{
+            border-radius: 5px;
+            border: none;
+            padding: 5px;
+            font-size: 10px;            
+        }
+
+        #addFormBtn{
+            margin-right: 40px;
+            border: none;
+            padding: 5px;
+            color: white;
+            background:#05346c ;
+            font-size: 12px;
+            transition: .5s;
+        }
+        #addBtn{
+            border: none;
+            padding: 5px;
+            color: white;
+            background:#05346c ;
+            font-size: 12px;
+            transition: .5s;
+        }
+        
+        #formContainer{
+            border: 1px solid black;
+            width: 350px;
+            height: 300px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: white;
+            box-shadow:  0 0 10px;
+            
+        }
+        #formContainer input{
+            width: 100%;
+            border: 2px solid #e4973b;
+            padding: 5px;
+            border-radius: 5px;
+            
+        }
+        #addFormBtn:hover{
+            background: black;
+            color: white;
+        }
+        #addBtn:hover{
+            background: black;
+            color: white;
+        }
+                           
+        #formContainer form{
+            padding-top: 10px;
+        }
+       #btnContainer input{
+        width: 40%;
+        background: #05346c;
+        color: white;
+        border: none;
+        padding: 7px;
+       }
+    </style>
+
+    <script>
+        const formContainer = document.getElementById('formContainer');
+        const addFormBtn = document.getElementById('addFormBtn');
+        const addPlaceHolder = document.getElementById('addPlaceHolder')
+        const addBtn = document.getElementById('addBtn')
+        const addBtnValue = document.getElementById('addBtnValue')
+        const btnContainer = document.getElementById('btnContainer')
+      
+
+
+        
+            addFormBtn.addEventListener('click', function (){
+                let fm = document.createElement('form');
+                let placeHolder = addPlaceHolder.value;
+                fm.innerHTML = `<input type = "text" id = "man" placeholder = "${placeHolder}">`
+
+                if (placeHolder === ""){
+                    alert('Please Enter Place Holder!')
+                }
+                else{
+                    formContainer.append(fm)
+                };
+                
+                addPlaceHolder.value = '';    
+                
+                
+            })
+
+            addBtn.addEventListener('click', function (){
+                let btn = document.createElement('form')
+                let btnValue = addBtnValue.value;
+                formContainer.appendChild(btnContainer)
+                btn.innerHTML = `<input type = "button" id= "bnt" value = "${btnValue}">`
+
+                if (btnValue === ""){
+                    alert('Please Enter Value for button!')
+                }
+                else{
+                    btnContainer.appendChild(btn)
+
+                }
+
+                addBtnValue.value = "";
+               
+
+            })
+
+           
+    </script>
+</body>
+</html>
