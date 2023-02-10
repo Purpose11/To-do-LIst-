@@ -42,3 +42,4 @@ addTaskBtn.addEventListener('click', function(){
       
 })
 
+//designed by purpose
